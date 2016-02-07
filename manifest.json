@@ -1,0 +1,31 @@
+﻿{
+    "manifest_version": 2,
+    "name": "Exercise",
+    "description": "Exercise by David Krief",
+    "version": "1.0",
+    "permissions": [
+        "cookies",
+        "http://*/*",
+        "https://*/*",
+        "storage",
+        "tabs",
+        "activeTab",
+        "downloads",
+        "notifications"
+    ],
+
+    "background":
+    {
+        "scripts": ["libs/jquery/jquery.js", "js/backgroundScripts/background.js"]
+    },
+
+    "content_scripts" :[
+      {
+        "matches" : ["https://jira.criteois.com/browse/MMS*"],
+        "js" : ["libs/jquery/jquery.js", "js/contentScripts/insertButton.js"]
+      }
+    ],
+
+
+    "web_accessible_resources": ["images/*.png", "js/*"]
+}

@@ -1,15 +1,14 @@
 
+//Adding button to the page
 var propertyList = document.getElementById('rowForcustomfield_15002'),
     clientName,
     button = document.createElement("button"),
     text = document.createTextNode("Get client info");
-
     /*Set the id attribute of the button so we can reference it with a click
       event handler*/
     button.setAttribute('id', 'getClientInfo');
     button.appendChild(text);
     propertyList.appendChild(button);
-
 
 var injectedButton = jQuery('button#getClientInfo');
 
@@ -25,10 +24,10 @@ injectedButton.click(function() {
   }, function(response){
     /* Receive response from background.js with client information stored in response object as a property
        called html with the value statusHTML, which includes all the built up content from the API call */
-      injectedButton.append(response.html);
+
+      jQuery('li#rowForcustomfield_15002').append(response.html);
+      injectedButton.fadeOut();
       return true;
   } //End callback function of sendMessage()
 ) //End chrome.runtime.sendMessage()
 }); //End click handler
-
-
